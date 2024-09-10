@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-image: url(https://images.unsplash.com/photo-1462536943532-57a629f6cc60?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3);
+            background-position: center;
+            background-size: cover;
+        }
+        .container{
+            width: 400px;
+            width: 40vh;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            border: 2px solid gray;
+            background: linear-gradient(to right,rgb(133, 103, 103),gray);
+            margin: 80px 480px;
+        }
+        form{
+            padding: 30px;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" value=""><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value=""><br><br>
+        
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" value=""><br><br>
+        
+            <label for="mobileno:">Mobile No:</label>
+            <input type="text" id="mobileno" name="mobileno" value=""><br><br>
+        
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value=""><br><br>
+        
+            <button type="submit" id="btn">Submit</button>
+        </form>
+    </div>
+
+    <script>
+
+        var btn = document.getElementById("btn")
+        btn.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            var name = document.getElementById("name");
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+            var mobileno = document.getElementById("mobileno");
+            var address = document.getElementById("address");
+
+            var div_cre = document.createElement("div")
+            div_cre.style.width = "30%"
+            div_cre.style.height = "100%"
+            div_cre.style.border="2px solid gray"
+            div_cre.style.margin="80px 480px";
+            div_cre.style.padding= "20px";
+            div_cre.style.backgroundColor="white"
+
+            h4_cre = document.createElement("h4")
+            h4_cre.innerText = `Name: ${name.value}`
+            h41_cre = document.createElement("h4")
+            h41_cre.innerText = `Email: ${email.value}`
+            h42_cre = document.createElement("h4")
+            h42_cre.innerText = `Password: ${password.value}`
+            h43_cre = document.createElement("h4")
+            h43_cre.innerText = `Mobile No: ${mobileno.value}`
+            h44_cre = document.createElement("h4")
+            h44_cre.innerText = `Address: ${address.value}`
+
+             var del_btn = document.createElement("i")
+            del_btn.className ="fa-solid fa-xmark";
+            del_btn.style.paddingLeft="350px"
+
+            del_btn.addEventListener("click", ()=> {
+                div_cre.remove();
+            })
+            div_cre.append(h4_cre, h41_cre, h42_cre, h43_cre, h44_cre,del_btn)
+            document.body.appendChild(div_cre)
+            name.value = "";
+            email.value = "";
+            password.value = "";
+            mobileno.value = "";
+            address.value = "";
+        });
+        
+    </script>
+</body>
+
+</html>
